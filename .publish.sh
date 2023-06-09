@@ -1,7 +1,13 @@
 #!/bin/sh
 
+cp -f go.mod .git/temp/
+cp -f go.sum .git/temp/
+cp -f LICENSE.md .git/temp/
+cp -f README.md .git/temp/
 git checkout master
-mv .git/temp/* ./
+cp -rf .git/temp/* ./
+rm -rf .git/temp
+mkdir .git/temp
 git add .
 git commit -a -m "build binary"
 latest=$(git describe --tags `git rev-list --tags --max-count=1`)

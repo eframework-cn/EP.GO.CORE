@@ -1,3 +1,1 @@
-*.go text eof=lf
-*.md text eof=lf
-*.txt text eof=lf
+* text=auto

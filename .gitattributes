@@ -4,3 +4,4 @@
 .md* !filter !diff
 go.mod !filter !diff
 go.sum !filter !diff
+* text=auto

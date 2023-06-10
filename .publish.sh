@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cp -rf res/* temp/
 cp -f go.mod temp/
 cp -f go.sum temp/
 cp -f LICENSE.md temp/

@@ -1,7 +1,8 @@
 * filter=git-crypt diff=git-crypt
+res/** !filter !diff
 .git* !filter !diff
 *.sh !filter !diff
-.md* !filter !diff
+*.md !filter !diff
 go.mod !filter !diff
 go.sum !filter !diff
 * text=auto

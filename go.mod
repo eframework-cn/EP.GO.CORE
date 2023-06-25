@@ -3,7 +3,7 @@ module github.com/eframework-cn/EP.GO.CORE
 go 1.18
 
 require (
-	github.com/eframework-cn/EP.GO.UTIL v1.0.0
+	github.com/eframework-cn/EP.GO.UTIL v1.0.1
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/golang/protobuf v1.5.3
 	github.com/hashicorp/consul/api v1.21.0

@@ -20,25 +20,35 @@ import (
 
 // 线路配置
 type LanCfg struct {
-	Name     string // 名称
-	Addr     string // tcp://$ip:$port
-	Raw      string // $ip:$port
-	IP       string // IP
-	Port     int    // 端口
-	GO       int    // 逻辑线程数
-	MaxRx    int    // 最大接收字节数（KB）
-	MsgProto string // msg消息协议类型，可选pb/json，默认pb
-	CgiProto string // cgi消息协议类型，可选pb/json，默认json
+	Name  string   `json:"name"`                 // 线路名称（必要）
+	Addr  string   `json:"addr"`                 // 线路地址（可选：固定地址/动态分配，开发阶段应固定端口）
+	Ctrl  string   `json:"ctrl"`                 // 运维地址（可选：固定地址/动态分配）
+	GO    int      `json:"go" default:"1"`       // 逻辑线程数（可选，默认：1）
+	MaxRx int      `json:"maxrx" default:"4096"` // 最大接收字节数（可选，单位：KB，默认：4096）
+	Msg   string   `json:"msg" default:"pb"`     // msg消息协议类型（可选：pb/json，默认：pb）
+	Cgi   string   `json:"cgi" default:"json"`   // cgi消息协议类型（可选：pb/json，默认：json）
+	Link  []string `json:"link"`                 // 关联线路（可选）
 }
 
-// 创建线路配置
-//	name: 线路名称
-//	addr: 线路地址
-func NewLanCfg(name, addr string) *LanCfg {
-	return nil
+// 线路解析
+//	id: 线路ID（name@ip:port）
+//	ip: 线路IP
+//	port: 线路端口
+func (this *LanCfg) Resolve() (id string, ip string, port int) {
+	return id, ip, port
 }
 
-// 服务器ID（$name@tcp://$ip:$port）
-func (this *LanCfg) ServerID() string {
+// 线路ID（name@ip:port）
+func (this *LanCfg) ID() string {
 	return ""
+}
+
+// 线路IP
+func (this *LanCfg) IP() string {
+	return ""
+}
+
+// 线路端口
+func (this *LanCfg) Port() int {
+	return 0
 }

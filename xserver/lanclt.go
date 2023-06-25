@@ -26,12 +26,15 @@ import (
 
 // 线路连接
 type LanClt struct {
-	*LanCfg
 	Sockets []mangos.Socket // Socket连接
+	ID      string
+	Addr    string
 }
 
 // 新建线路连接
-func NewLanClt(cfg *LanCfg) *LanClt {
+//	id: 线路ID
+//	addr: 线路地址
+func NewLanClt(id string, addr string) *LanClt {
 	return nil
 }
 

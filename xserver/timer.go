@@ -114,14 +114,16 @@ func ClearInterval(id int, tid ...int64) {
 
 // 在逻辑主线程中调用（返回的chan可用于阻塞当前线程）
 //	fun: 回调函数
-func RunInMain(fun func()) chan bool {
+//	tag: 日志标签
+func RunInMain(fun func(), tag ...string) chan bool {
 	return nil
 }
 
 // 在指定逻辑线程中调用（返回的chan可用于阻塞当前线程）
 //	tid: 线程ID
 //	fun: 回调函数
-func RunIn(tid int64, fun func()) chan bool {
+//	tag: 日志标签
+func RunIn(tid int64, fun func(), tag ...string) chan bool {
 	return nil
 }
 

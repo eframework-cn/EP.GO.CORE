@@ -16,7 +16,6 @@ import (
 	_ "math/rand"
 	"time"
 
-	_ "github.com/eframework-cn/EP.GO.UTIL/xfs"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xlog"
 )
 

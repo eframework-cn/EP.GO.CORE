@@ -16,8 +16,6 @@ import (
 	_ "errors"
 	_ "fmt"
 
-	_ "github.com/eframework-cn/EP.GO.UTIL/xconfig"
-	_ "github.com/eframework-cn/EP.GO.UTIL/xfs"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xjson"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xlog"
 	"github.com/mediocregopher/radix.v2/pool"
@@ -38,21 +36,17 @@ var (
 )
 
 // Redis配置
-type RedisConfig struct {
+type RedisCfg struct {
 	Addr    string `json:"addr"`    // Redis地址:x.x.x.x:xxxx
 	Pwd     string `json:"pwd"`     // Redis密码
+	DB      int    `json:"db"`      // Redis分区
 	MaxIdle int    `json:"maxIdle"` // 最大空闲连接
 }
 
 // 初始化Redis
-func InitRedis() error {
+//	cfg: 配置
+func InitRedis(cfg *RedisCfg) error {
 	return nil
-}
-func dial(pwd string) func(network, addr string) (*redis.Client, error) {
-	return nil
-}
-func genLockKey(key string) string {
-	return ""
 }
 
 // 为给定key加锁

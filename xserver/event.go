@@ -25,7 +25,7 @@ var (
 )
 
 // Msg函数类型
-type MsgFunc func(*xproto.MsgReq)
+type MsgFunc func(mreq *xproto.MsgReq)
 
 // 处理回调
 //	reply: 响应对象
@@ -90,7 +90,7 @@ func NotifyRpc(id int, rreq *xproto.RpcReq, rresp *xproto.RpcResp) bool {
 }
 
 // Cgi函数类型
-type CgiFunc func(req *xproto.CgiReq, resp *xproto.CgiResp)
+type CgiFunc func(creq *xproto.CgiReq, cresp *xproto.CgiResp)
 
 // 处理回调
 //	reply: 响应对象
@@ -123,7 +123,7 @@ func NotifyCgi(id int, creq *xproto.CgiReq, cresp *xproto.CgiResp) bool {
 }
 
 // Evt函数类型
-type EvtFunc func(interface{})
+type EvtFunc func(param interface{})
 
 // 处理回调
 //	reply: 响应对象
@@ -136,7 +136,7 @@ func (this EvtFunc) Handle(reply *xevt.EvtReply, param1 interface{}, param2 inte
 // 注册Evt消息（用于服务器内部）（全局）
 //	id: 消息ID
 //	fun: 消息回调
-func RegEvt(id int, fun func(interface{})) int {
+func RegEvt(id int, fun func(param interface{})) int {
 	return 0
 }
 

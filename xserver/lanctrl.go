@@ -28,6 +28,20 @@ import (
 	_ "github.com/eframework-cn/EP.GO.UTIL/xtime"
 )
 
+const (
+	LAN_CTRL_ROOT     = "/"         // 运维帮助
+	LAN_CTRL_STATUS   = "/status"   // 线路状态
+	LAN_CTRL_HEALTH   = "/health"   // 线路检测
+	LAN_CTRL_BACKUP   = "/backup"   // 线路备份
+	LAN_CTRL_RESUME   = "/resume"   // 线路恢复
+	LAN_CTRL_PAUSE    = "/pause"    // 线路暂停
+	LAN_CTRL_CLOSE    = "/close"    // 线路关闭
+	LAN_CTRL_DUMP     = "/dump"     // 清空内存
+	LAN_CTRL_PRINT    = "/print"    // 内存打印
+	LAN_CTRL_CONSOLE  = "/console"  // 线路日志
+	LAN_CTRL_FLUSHLOG = "/flushlog" // 清空日志
+)
+
 // 启动线路
 //	lancfg: 线路配置
 //	handleMsg: 消息处理函数

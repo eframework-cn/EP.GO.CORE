@@ -13,14 +13,14 @@
 package xserver
 
 import (
-	_ "encoding/json"
 	_ "errors"
 	_ "fmt"
 	_ "io/ioutil"
 	_ "net/http"
-	_ "strings"
+	_ "sync"
 	_ "time"
 
+	_ "github.com/eframework-cn/EP.GO.UTIL/xcollect"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xjson"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xlog"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xrun"
@@ -28,29 +28,31 @@ import (
 	consulapi "github.com/hashicorp/consul/api"
 )
 
-const (
-	CONSUL_RESP_OK    = "ok"     // Consul响应200
-	CONSUL_CHECK_PATH = "/check" // Consul心跳检测
-)
+// 中心配置
+type CslCfg struct {
+	Ns       string `json:"ns"`                   // 命名空间（必要）
+	Addr     string `json:"addr"`                 // 注册地址（必要）
+	Logout   int    `json:"logout" default:"60"`  // 超时注销（可选，默认：60，开发阶段应设置较大值避免注销）
+	Timeout  int    `json:"timeout" default:"5"`  // 检测超时（可选，默认：5，开发阶段应设置较大值避免注销）
+	Interval int    `json:"interval" default:"5"` // 检测间隔（可选，默认：5，开发阶段应设置较大值避免注销）
+	Fetch    int    `json:"fetch" default:"5"`    // 拉取间隔（可选，默认：5）
+}
 
 var (
 	CslClt *consulapi.Client // Consul连接
-	CslCfg *consulapi.Config // Consul配置
+	// Consul刷新
 )
 
-func startConsul(onUpdate func(map[string][]string)) {
-	return
-}
-func httpConsul(addr string) {
-	return
-}
-func regConsul(name string, nodeID string, addr string, port int, regAddr string, timeout string, interval string, unregAfter string) error {
+func regConsul() error {
 	return nil
 }
-func unregConsul(nodeID string) error {
+func unregConsul(id string) error {
 	return nil
 }
-func pullConsul(url string, servers string, onUpdate func(map[string][]string)) {
+func waitConsul() chan byte {
+	return nil
+}
+func fetchConsul(onUpdate func(map[string][]string)) {
 	return
 }
 

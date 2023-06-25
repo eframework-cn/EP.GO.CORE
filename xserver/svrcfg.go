@@ -13,40 +13,43 @@
 package xserver
 
 import (
-	"github.com/eframework-cn/EP.GO.UTIL/xconfig"
-	_ "github.com/eframework-cn/EP.GO.UTIL/xlog"
+	_ "fmt"
+	_ "io/ioutil"
+	_ "net"
+	_ "net/http"
+	_ "os"
+
+	"github.com/eframework-cn/EP.GO.CORE/xorm"
+	_ "github.com/eframework-cn/EP.GO.UTIL/xfs"
+	_ "github.com/eframework-cn/EP.GO.UTIL/xjson"
+	"github.com/eframework-cn/EP.GO.UTIL/xlog"
+	_ "github.com/eframework-cn/EP.GO.UTIL/xstring"
+	_ "github.com/hashicorp/consul/sdk/freeport"
+)
+
+const (
+	ENV_DEV  = "dev"  // 开发
+	ENV_TEST = "test" // 内测
+	ENV_BETA = "beta" // 公测
+	ENV_LIVE = "live" // 线上
+)
+
+var (
+	GCfg *SvrCfg // 全局配置
 )
 
 // 服务配置
 type SvrCfg struct {
-	Raw              xconfig.Configer
-	Env              string  // 环境标识: 测试，内测，生产
-	LanCfg           *LanCfg // 线路配置
-	LinkServer       string  // 需要连接的内部服务器
-	ConsulAddr       string  // Consul中心地址
-	ConsulHttp       string  // Consul检测地址
-	ConsulTimeout    string  // Consul超时时间
-	ConsulInterval   string  // Consul访问间隔
-	ConsulDeregister string  // Consul延迟注销
+	Raw   []byte                    `json:"-"`               // 原始数据
+	Env   string                    `json:"env"`             // 环境标识（必要：dev[开发]/test[内测]/beta[公测]/live[线上]）
+	Csl   *CslCfg                   `json:"csl"`             // 中心配置（必要）
+	Lan   *LanCfg                   `json:"lan"`             // 线路配置（必要）
+	Log   map[string]*xlog.LogCfg   `json:"log"`             // 日志配置（必要）
+	Redis *xorm.RedisCfg            `json:"redis,omitempty"` // Redis配置（可选）
+	Mysql map[string]*xorm.MysqlCfg `json:"mysql,omitempty"` // Mysql配置（可选）
 }
 
 // 初始化
-//	config: 配置内容
-func (this *SvrCfg) Init(config string) bool {
-	return false
-}
-
-// 服务ID
-func (this *SvrCfg) SvrID() string {
-	return ""
-}
-
-// 服务名称
-func (this *SvrCfg) SvrName() string {
-	return ""
-}
-
-// 是否调试环境
-func (this *SvrCfg) IsDebug() bool {
+func (this *SvrCfg) Init() bool {
 	return false
 }

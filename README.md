@@ -1,6 +1,6 @@
 # EP.GO.CORE
 Package core provides service-register/discover/storage, lan-route, session, conn/http, xorm libs, etc.  
-[Go to Scripting API](https://go.eframework.cn)
+[Go to Scripting API](https://pkg.go.dev/github.com/eframework-cn/EP.GO.CORE)
 
 ## SUMMARY | 功能概述
 
@@ -17,4 +17,4 @@ Package core provides service-register/discover/storage, lan-route, session, con
 - **SEE [LICENSE.md](https://go.eframework.cn/md_LICENSE.html) FOR MORE DETAILS.**
 
 ## CHANGELOG | 更新日志
-- **SEE [CHANGELOG.md](https://go.eframework.cn/index.html#autotoc_md8) FOR MORE DETAILS.**
+- **SEE [CHANGELOG.md](https://go.eframework.cn/index.html#autotoc_md10) FOR MORE DETAILS.**

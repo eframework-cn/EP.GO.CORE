@@ -59,7 +59,7 @@ func fetchConsul(onUpdate func(map[string][]string)) {
 // 推送KV（键值对）至Consul Storage
 //	key: 键
 //	value: 值
-//	version: 版本号，以'VERSION_'为前缀
+//	version: 版本号
 //	block-是否阻塞
 func PostKV(key string, value string, version string, block ...bool) bool {
 	return false
@@ -72,7 +72,7 @@ func PullKV(key string) []byte {
 }
 
 // 订阅Consul Storage中的KV（键值对）（阻塞）
-//	key: 键（注意订阅的Key需要设置版本，以'VERSION_'为前缀）
+//	key: 键（注意订阅的Key需要设置版本）
 //	interval: 间歇时间
 func SubKV(key string, interval int, onUpdate func(data []byte)) {
 	return

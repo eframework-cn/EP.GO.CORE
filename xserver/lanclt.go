@@ -26,9 +26,9 @@ import (
 
 // 线路连接
 type LanClt struct {
-	Sockets []mangos.Socket // Socket连接
-	ID      string
-	Addr    string
+	Sockets []mangos.Socket // Socket连接池
+	ID      string          // 线路ID
+	Addr    string          // 线路地址
 }
 
 // 新建线路连接

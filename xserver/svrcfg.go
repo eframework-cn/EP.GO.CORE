@@ -24,7 +24,6 @@ import (
 	_ "github.com/eframework-cn/EP.GO.UTIL/xjson"
 	"github.com/eframework-cn/EP.GO.UTIL/xlog"
 	_ "github.com/eframework-cn/EP.GO.UTIL/xstring"
-	_ "github.com/hashicorp/consul/sdk/freeport"
 )
 
 const (
@@ -52,4 +51,7 @@ type SvrCfg struct {
 // 初始化
 func (this *SvrCfg) Init() bool {
 	return false
+}
+func allocPort() int {
+	return 0
 }

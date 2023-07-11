@@ -7,7 +7,6 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/golang/protobuf v1.5.3
 	github.com/hashicorp/consul/api v1.21.0
-	github.com/hashicorp/consul/sdk v0.13.1
 	github.com/mediocregopher/radix.v2 v0.0.0-20181115013041-b67df6e626f9
 	golang.org/x/net v0.10.0
 	google.golang.org/protobuf v1.30.0
